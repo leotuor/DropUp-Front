@@ -36,11 +36,11 @@ function LoginMenu({className: className}: LoginButtonProps) {
         <Icon path={mdiAccount} size={1.7} color={'black'} />
       </button>
       {isLoginOpen &&
-        <div className="flex fixed inset-0 items-center justify-center bg-gray-900 bg-opacity-50 z-50">
+        <div className="flex fixed inset-0 items-center justify-center bg-gray-900 bg-opacity-50 z-50 transition duration-300 transform">
           <div ref={menuRef} className="bg-white rounded-lg shadow-md p-6 w-1/3">
             <h2 className="text-2xl font-bold text-gray-900 mb-4 justify-self-center">Login</h2>
             <form className="flex flex-col">
-              <input type="email" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Email address" />
+              <input type="email" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-b lue-500 transition ease-in-out duration-150" placeholder="Email address" />
               <input type="password" className="bg-gray-100 text-gray-900 border-0 rounded-md p-2 mb-4 focus:bg-gray-200 focus:outline-none focus:ring-1 focus:ring-blue-500 transition ease-in-out duration-150" placeholder="Password" />
               <div className="grid grid-cols-4 gap-2">
                 <label htmlFor="remember-me" className="col-start-1 col-end-3 text-sm text-gray-900 cursor-pointer">
