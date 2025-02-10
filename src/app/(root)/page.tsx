@@ -1,6 +1,7 @@
 import React from 'react'
 import SearchBarComponent from '../components/searchBar/SearchBarComponent';
 import ListingCard from '../components/listingCard/ListingCard';
+import CardCarousel from '../components/cardCarousel/CardCarousel';
 
 function Page() {
 
@@ -11,6 +12,7 @@ function Page() {
           <span className='text-5xl font-bold text-center mt-10'>Escolha sua proxima parada</span>
           <SearchBarComponent className='mt-2 mb-2'/>
           <ListingCard></ListingCard>
+          <CardCarousel></CardCarousel>
         </div>
       </div>
     </div>
