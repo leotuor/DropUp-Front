@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import React from 'react'
 import Link from 'next/link'
@@ -7,6 +7,7 @@ import DropdownMenu from './dropdownMenu/DropdownMenu';
 import LoginMenu from './loginMenu/LoginMenu';
 
 function Navbar() {
+  
   return (
     <div className="w-full bg-teal-300 rounded-b shadow-md py-1">
       <nav className="flex align-center">

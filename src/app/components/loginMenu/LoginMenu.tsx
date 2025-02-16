@@ -1,8 +1,10 @@
 /* eslint-disable @next/next/no-img-element */
+"use client"
 import React from 'react'
 import Icon from '@mdi/react';
 import { mdiAccount } from '@mdi/js';
 import { useState, useEffect, useRef } from 'react';
+import { signIn } from "next-auth/react";
 
 type LoginButtonProps = {
   className?: string;
@@ -52,8 +54,15 @@ function LoginMenu({className: className}: LoginButtonProps) {
               </div>
               <button type="submit" className="bg-gradient-to-r from-indigo-500 to-blue-500 text-white font-bold py-2 px-4 rounded-md mt-4 hover:bg-indigo-600 hover:to-blue-600 transition ease-in-out duration-150">Login</button>
               <span className='text-center text-xl text-black mt-2'>ou</span>
-              <button type="submit" className="flex align-center justify-center text-white font-bold py-2 px-4 rounded-md outline-blue-500 mt-4 hover:bg-gray-100 hover:to-gray-800 transition ease-in-out duration-150">
-                <img src='./google_logo.png' alt='google_logo' className='size-8 -ml-7'></img>
+            </form>
+            <form onSubmit={(e) => { 
+              e.preventDefault();
+              signIn("google");
+            }}>
+              <button 
+                type="submit"
+                className="flex align-center justify-center text-white font-bold py-2 px-4 rounded-md outline-blue-500 mt-4 hover:bg-gray-100 hover:to-gray-800 transition ease-in-out duration-150">
+                  <img src='./google_logo.png' alt='google_logo' className='size-8 -ml-7'></img>
                 <span className='text-gray-700 font-bold mt-1 ml-3'>Logue com google</span>
               </button>
             </form>
