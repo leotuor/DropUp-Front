@@ -1,3 +1,5 @@
+"use client"
+
 import React from 'react'
 import './dropdownMenu.css'
 import { useState, useRef, useEffect } from 'react';

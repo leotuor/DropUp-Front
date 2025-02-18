@@ -1,12 +1,19 @@
-'use client';
+"use server"
 
 import React from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
-import DropdownMenu from './dropdownMenu/DropdownMenu';
-import LoginMenu from './loginMenu/LoginMenu';
+import DropdownMenu from '@/app/components/Navbar/DropdownMenu';
+import LoginMenu from '@/app/components/Navbar/LoginMenu';
+import { auth } from '@/auth';
+import UserAvatar from './UserMenu';
+import { logoutFunction } from "@/app/components/Navbar/SignOutAction";
+import { signInFunction } from "@/app/components/Navbar/SignInAction";
 
-function Navbar() {
+async function Navbar() {
+  const session = await auth();
+  const user = session?.user;
+  
   return (
     <div className="w-full bg-teal-300 rounded-b shadow-md py-1">
       <nav className="flex align-center">
@@ -24,7 +31,11 @@ function Navbar() {
           </Link>
         </div>
         <div>
-          <LoginMenu/>
+          { user ?
+            <UserAvatar userImage={`${user.image}`} logout={logoutFunction}/>
+            :
+            <LoginMenu login={signInFunction}/>
+          }
         </div>
       </nav>
     </div>
