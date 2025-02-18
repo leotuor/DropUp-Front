@@ -1,6 +1,6 @@
 import React from 'react'
-import SearchBarComponent from '../components/searchBar/SearchBarComponent';
-import ListingCard from '../components/listingCard/ListingCard';
+import SearchBarComponent from '@/app/components/SearchBar';
+import ListingCard from '@/app/components/ListingCard';
 
 async function Page() {
   

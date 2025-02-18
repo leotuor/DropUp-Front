@@ -4,13 +4,13 @@ import React from 'react'
 import Icon from '@mdi/react';
 import { mdiAccount } from '@mdi/js';
 import { useState, useEffect, useRef } from 'react';
-import { signIn } from "next-auth/react";
 
-type LoginButtonProps = {
+type loginMenuProps = {
   className?: string;
+  login: () => Promise<void>;
 }
 
-function LoginMenu({className: className}: LoginButtonProps) {
+function LoginMenu({className, login }: loginMenuProps) {
   
   const [isLoginOpen, setIsLogin] = useState(false);
   const menuRef = useRef<HTMLDivElement>(null);
@@ -34,7 +34,8 @@ function LoginMenu({className: className}: LoginButtonProps) {
 
   return (
     <div>
-      <button className={`absolute right-2 mt-2 mr-2 px-3 bg-white rounded-md shadow-[rgba(0,0,15,0.5)_0px_0px_10px_5px] shadow-slate-200 ${className}`} onClick={() => {setIsLogin(!isLoginOpen)}}>
+      <button className={`absolute right-2 mt-2 mr-2 px-3 bg-white rounded-md shadow-[rgba(0,0,15,0.5)_0px_0px_10px_5px] shadow-slate-200 ${className}`} 
+      onClick={() => {setIsLogin(!isLoginOpen)}}>
         <Icon path={mdiAccount} size={1.7} color={'black'} />
       </button>
       {isLoginOpen &&
@@ -57,7 +58,7 @@ function LoginMenu({className: className}: LoginButtonProps) {
             </form>
             <form onSubmit={(e) => { 
               e.preventDefault();
-              signIn("google");
+              login();
             }}>
               <button 
                 type="submit"
